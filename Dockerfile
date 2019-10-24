@@ -1,12 +1,10 @@
-# This container is aimed at timeliness and cutting edge tooling over stability
+# NOTE: This container is aimed at timeliness and cutting edge-tooling over stability
 FROM ocaml/opam2:latest
 
 MAINTAINER Shon Feder <shon.feder@gmail.com>
 
 # The base opam is configured to use its local repository, so refresh that
-RUN cd /home/opam/opam-repository/ && \
-  git pull origin
-
+RUN cd /home/opam/opam-repository/ && git pull origin
 RUN opam update
 
 RUN sudo apt-get update
